@@ -8,7 +8,18 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+
+    let settingsOptionsArray = ["Show all games", "Show available games", "Show checked out games", "Add game", "Delete game"]
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -16,5 +27,33 @@ class ViewController: UIViewController {
     }
 
 
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return settingsOptionsArray.count
+    }
+    
+    
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+       let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! VideoGameTableViewCell
+        
+       cell.menuSetting?.text = settingsOptionsArray[indexPath.row]
+
+        
+        return cell
+        
+        
+    }
+    
+    
+    
+    
+    
+    
+
 }
+
+
+
 
