@@ -11,30 +11,39 @@ import UIKit
 class VideoLibraryViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     
+    @IBOutlet weak var gameLibraryTableView: UITableView!
     
 
-    var videoGameArray: [VideoGame] = [VideoGame(title: "Muppet Monster Mania", rating: "G", cover: UIImage(named: "MonsterAdventure.jpeg"), genre: "Horror", description: "It's like going to a haunted house, but better because there are Muppets.", gameStatus: true), VideoGame(title: "Muppet Pinball Mayhem", rating: "G", cover: UIImage(named: "MuppetPinball.jpeg"), genre: "Horror", description: "It's like playing a pinball machine, but better because there are Muppets.", gameStatus: false), VideoGame(title: "Spy Muppets", rating: "G", cover: UIImage(named: "SpyMuppets.jpeg"), genre: "Horror", description: "It's like watching James Bond, but better because there are Muppets.", gameStatus: true), VideoGame(title: "Race Mania", rating: "G", cover: UIImage(named: "Race.jpeg"), genre: "Horror", description: "It's like Mario Kart, but better because there are Muppets.", gameStatus: false), VideoGame(title: "Pigs in Space", rating: "G", cover: UIImage(named: "PigsInSpace.jpeg"), genre: "Horror", description: "It's like Lost in Space, but better because there are Muppets.", gameStatus: true)]
+    override func viewDidLoad() {
+        
+            super.viewDidLoad()
+        
+    }
     
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
+        super.viewWillAppear(animated)
+        
+        gameLibraryTableView.reloadData()
+        
+        
+    }
     
     
     // Sets number of rows in tableView
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return videoGameArray.count
+        return GameManager.sharedInstance.getGameCount()
     }
     
     
-
-
-    
-    
-
     
    
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "videoGameCell") as! VideoGameTableViewCell
         
-        let gameAtIndex = videoGameArray[indexPath.row]
+        let gameAtIndex = GameManager.sharedInstance.getGameIndex(at: indexPath.row)
         
         cell.videoGameTitle?.text = "\(gameAtIndex.title)"
         
@@ -46,6 +55,15 @@ class VideoLibraryViewController: UIViewController, UITableViewDelegate, UITable
         
         cell.gameDescription?.text = "\(gameAtIndex.description)"
         
+        // If the game has a due date, we want to format it into a String and display it on the gameDueDate label
+        if let dueDate = gameAtIndex.dueDate {
+            cell.gameDueDate.text = formatDate(dueDate)
+        } else {
+            cell.gameDueDate.text = ""
+        }
+        
+        
+        
         if  gameAtIndex.gameStatus == true {
             cell.gameStatusImage?.image = UIImage(named: "CheckedIn.jpeg")
         } else {
@@ -53,12 +71,17 @@ class VideoLibraryViewController: UIViewController, UITableViewDelegate, UITable
         }
         
         return cell
+
     }
     
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+    
     }
     
+    @IBAction func menuButtonTapped(_ sender: Any) {
+        self.performSegue(withIdentifier: "unwindToMenu", sender: self)
+    }
     
     
 

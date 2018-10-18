@@ -10,7 +10,7 @@ import UIKit
 
 class VideoGameTableViewCell: UITableViewCell {
     
-    
+    // Video Library View Controller
     @IBOutlet weak var videoGameTitle: UILabel!
     
     
@@ -29,8 +29,20 @@ class VideoGameTableViewCell: UITableViewCell {
     @IBOutlet weak var gameStatusImage: UIImageView!
 
     
+    @IBOutlet weak var gameDueDate: UILabel!
     
+    
+    
+    
+    
+    
+    // View Controller
     @IBOutlet weak var menuSetting: UILabel!
+    
+    
+    
+    
+    
     
     
     

@@ -23,7 +23,7 @@ class VideoGame {
     
     let gameStatus: Bool
     
-//    let dueDate: Date?
+    var dueDate: Date?
     
     
     
@@ -37,8 +37,7 @@ class VideoGame {
         self.genre = genre
         self.description = description
         self.gameStatus = gameStatus
-//        self.dueDate = dueDate
-        
+       
         
     }
     
