@@ -130,6 +130,9 @@ class AddGameViewController: UIViewController, UIPickerViewDataSource, UIPickerV
     }
     
     
+    @IBAction func menuButtonTapped(_ sender: Any) {
+        self.performSegue(withIdentifier: "unwindToMenu", sender: self)
+    }
     
     
 }

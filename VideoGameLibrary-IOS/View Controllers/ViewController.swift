@@ -10,7 +10,7 @@ import UIKit
 
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-    let settingsOptionsArray = ["Show all games", "Show available games", "Show checked out games", "Add game", "Edit game", "Delete game"]
+    let settingsOptionsArray = ["Show all games", "Show available games", "Show checked out games", "Add game"]
     
     
     
@@ -71,6 +71,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             print("Unprepared index")
         }
     }
+    
     
     
     @IBAction func unwindToGameList(segue: UIStoryboardSegue) {}

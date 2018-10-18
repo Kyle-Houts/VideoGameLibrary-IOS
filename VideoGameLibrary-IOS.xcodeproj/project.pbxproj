@@ -10,6 +10,7 @@
 		C4B10B91217655BC00259F9F /* AddGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B10B90217655BC00259F9F /* AddGameViewController.swift */; };
 		C4F58EB92177AB290003746C /* GameManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F58EB82177AB290003746C /* GameManager.swift */; };
 		C4F58EC02178C0330003746C /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F58EBF2178C0330003746C /* Utilities.swift */; };
+		C4F58EC22178F60F0003746C /* EditGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F58EC12178F60F0003746C /* EditGameViewController.swift */; };
 		C4FB21EF2175098500E102F5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4FB21EE2175098500E102F5 /* AppDelegate.swift */; };
 		C4FB21F12175098500E102F5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4FB21F02175098500E102F5 /* ViewController.swift */; };
 		C4FB21F42175098500E102F5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4FB21F22175098500E102F5 /* Main.storyboard */; };
@@ -24,6 +25,7 @@
 		C4B10B90217655BC00259F9F /* AddGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGameViewController.swift; sourceTree = "<group>"; };
 		C4F58EB82177AB290003746C /* GameManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameManager.swift; sourceTree = "<group>"; };
 		C4F58EBF2178C0330003746C /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
+		C4F58EC12178F60F0003746C /* EditGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditGameViewController.swift; sourceTree = "<group>"; };
 		C4FB21EB2175098500E102F5 /* VideoGameLibrary-IOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "VideoGameLibrary-IOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4FB21EE2175098500E102F5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C4FB21F02175098500E102F5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -53,6 +55,7 @@
 				C4FB21F02175098500E102F5 /* ViewController.swift */,
 				C4B10B90217655BC00259F9F /* AddGameViewController.swift */,
 				C4FB2202217513E700E102F5 /* VideoLibraryViewController.swift */,
+				C4F58EC12178F60F0003746C /* EditGameViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -195,6 +198,7 @@
 			files = (
 				C4FB2203217513E700E102F5 /* VideoLibraryViewController.swift in Sources */,
 				C4F58EB92177AB290003746C /* GameManager.swift in Sources */,
+				C4F58EC22178F60F0003746C /* EditGameViewController.swift in Sources */,
 				C4FB21F12175098500E102F5 /* ViewController.swift in Sources */,
 				C4B10B91217655BC00259F9F /* AddGameViewController.swift in Sources */,
 				C4FB220121750F0300E102F5 /* VideoGameClass.swift in Sources */,

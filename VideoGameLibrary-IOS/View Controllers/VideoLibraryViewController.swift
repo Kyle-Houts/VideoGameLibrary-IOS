@@ -79,6 +79,41 @@ class VideoLibraryViewController: UIViewController, UITableViewDelegate, UITable
     
     }
     
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        // This allows us to return an array of actions that the row will have (if any)
+        
+        let deleteAction = UITableViewRowAction(style: .destructive, title: "Delete") { (_, _) in
+            
+            // Remove the game at the current index from the game array
+            GameManager.sharedInstance.removeGame(at: indexPath.row)
+            // Delete the row from the table view at the current index path
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
+        
+        let gameForIndex = GameManager.sharedInstance.getGameIndex(at: indexPath.row)
+        
+        let title = gameForIndex.gameStatus ? "Check Out" : "Check In"
+        
+        let checkOutOrInAction = UITableViewRowAction(style: .normal, title: title) { _, _ in
+            GameManager.sharedInstance.checkGameInOrOut(at: indexPath.row)
+            tableView.reloadRows(at: [indexPath], with: .fade)
+        }
+        
+        checkOutOrInAction.backgroundColor = UIColor.purple
+        
+        let showEditScreenAction = UITableViewRowAction(style: .normal, title: "Edit") { _, _ in
+        self.performSegue(withIdentifier: "showEditGameScreen", sender: self)
+        }
+        
+        showEditScreenAction.backgroundColor = UIColor.magenta
+        
+        return [deleteAction, checkOutOrInAction, showEditScreenAction]
+    }
+    
+    
+    
+    
+    
     @IBAction func menuButtonTapped(_ sender: Any) {
         self.performSegue(withIdentifier: "unwindToMenu", sender: self)
     }

@@ -16,14 +16,13 @@ class GameManager {
     
     // We are creating a private initializer so that no instance of this class can be made anywhere else
     private init() {
-        videoGameArray[1].dueDate = Date()
-        videoGameArray[3].dueDate = Date()
+        
     }
     
     
     
     // The array of games that will be used throughout the application
-    var videoGameArray: [VideoGame] = [VideoGame(title: "Muppet Monster Mania", rating: "T", cover: UIImage(named: "MonsterAdventure.jpeg"), genre: "Horror", description: "It's like going to a haunted house, but better because there are Muppets.", gameStatus: true), VideoGame(title: "Muppet Pinball Mayhem", rating: "G", cover: UIImage(named: "MuppetPinball.jpeg"), genre: "Horror", description: "It's like playing a pinball machine, but better because there are Muppets.", gameStatus: false), VideoGame(title: "Spy Muppets", rating: "G", cover: UIImage(named: "SpyMuppets.jpeg"), genre: "Horror", description: "It's like watching James Bond, but better because there are Muppets.", gameStatus: true), VideoGame(title: "Race Mania", rating: "G", cover: UIImage(named: "Race.jpeg"), genre: "Horror", description: "It's like Mario Kart, but better because there are Muppets.", gameStatus: false), VideoGame(title: "Pigs in Space", rating: "G", cover: UIImage(named: "PigsInSpace.jpeg"), genre: "Horror", description: "It's like Lost in Space, but better because there are Muppets.", gameStatus: true)]
+    var videoGameArray: [VideoGame] = [VideoGame(title: "Muppet Monster Mania", rating: "T", cover: UIImage(named: "MonsterAdventure.jpeg"), genre: "Horror", description: "It's like going to a haunted house, but better because there are Muppets.", gameStatus: true), VideoGame(title: "Muppet Pinball Mayhem", rating: "G", cover: UIImage(named: "MuppetPinball.jpeg"), genre: "Horror", description: "It's like playing a pinball machine, but better because there are Muppets.", gameStatus: true), VideoGame(title: "Spy Muppets", rating: "G", cover: UIImage(named: "SpyMuppets.jpeg"), genre: "Horror", description: "It's like watching James Bond, but better because there are Muppets.", gameStatus: true), VideoGame(title: "Race Mania", rating: "G", cover: UIImage(named: "Race.jpeg"), genre: "Horror", description: "It's like Mario Kart, but better because there are Muppets.", gameStatus: true), VideoGame(title: "Pigs in Space", rating: "G", cover: UIImage(named: "PigsInSpace.jpeg"), genre: "Horror", description: "It's like Lost in Space, but better because there are Muppets.", gameStatus: true)]
     
     
     // Function to get the number of games we have
@@ -43,18 +42,40 @@ class GameManager {
         
         videoGameArray.append(game)
         
+    }
+    
+    // Function to delete a game from the library
+    func removeGame(at index: Int) {
+        
+        videoGameArray.remove(at: index)
+        
+    }
+    
+    
+    // Function to check game in or out
+    func checkGameInOrOut(at index: Int) {
+        
+        let gameForIndex = videoGameArray[index]
+        
+        gameForIndex.gameStatus = !gameForIndex.gameStatus
+        
+        if gameForIndex.gameStatus {
+            
+            // Remove any existing due date
+            gameForIndex.dueDate = nil
+            
+        } else {
+            
+            // Add a new due date, since the game has just been checked out
+            gameForIndex.dueDate = Calendar.current.date(byAdding: .day, value: 14, to: Date())
+            
+        }
         
         
     }
     
-    // Function to delete a game from the library
-    
-    
     
     // Function to edit a game in the library
-    
-    
-    
     
     
 }

@@ -21,7 +21,7 @@ class VideoGame {
     
     let description: String
     
-    let gameStatus: Bool
+    var gameStatus: Bool
     
     var dueDate: Date?
     
