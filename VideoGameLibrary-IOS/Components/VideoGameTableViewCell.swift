@@ -23,7 +23,8 @@ class VideoGameTableViewCell: UITableViewCell {
     @IBOutlet weak var gameGenre: UILabel!
     
     
-    @IBOutlet weak var gameDescription: UILabel!
+
+    @IBOutlet weak var gameDescription: UITextView!
     
     
     @IBOutlet weak var gameStatusImage: UIImageView!

@@ -11,15 +11,15 @@ import UIKit
 
 class VideoGame {
     
-    let title: String
+    var title: String
     
-    let rating: String
+    var rating: String
     
-    let cover: UIImage?
+    var cover: UIImage?
     
-    let genre: String
+    var genre: String
     
-    let description: String
+    var description: String
     
     var gameStatus: Bool
     

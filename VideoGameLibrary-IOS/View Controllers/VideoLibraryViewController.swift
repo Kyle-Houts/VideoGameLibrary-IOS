@@ -11,16 +11,27 @@ import UIKit
 class VideoLibraryViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     
-    @IBOutlet weak var gameLibraryTableView: UITableView!
     
 
+    
+    @IBOutlet weak var gameLibraryTableView: UITableView!
+    
+    var currentGame: VideoGame!
+    
+    
+    
+    
+    
     override func viewDidLoad() {
         
-            super.viewDidLoad()
+        super.viewDidLoad()
         
     }
     
     
+    
+    
+    // Keeps changes to videoGameLibrary
     override func viewWillAppear(_ animated: Bool) {
         
         super.viewWillAppear(animated)
@@ -31,6 +42,17 @@ class VideoLibraryViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     
+    // Keeps changes that edit a video game
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destination = segue.destination as?
+            EditGameViewController {
+            // We need to pass through the Game that we'll be editing.
+            destination.gameToEdit = currentGame
+        }
+    }
+    
+    
+    
     // Sets number of rows in tableView
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return GameManager.sharedInstance.getGameCount()
@@ -38,8 +60,8 @@ class VideoLibraryViewController: UIViewController, UITableViewDelegate, UITable
     
     
     
-   
     
+    // sets values to tableView cells
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "videoGameCell") as! VideoGameTableViewCell
         
@@ -48,6 +70,7 @@ class VideoLibraryViewController: UIViewController, UITableViewDelegate, UITable
         cell.videoGameTitle?.text = "\(gameAtIndex.title)"
         
         cell.videoGameRating?.text = "\(gameAtIndex.rating)"
+        
         
         cell.videoGameImage?.image = gameAtIndex.cover
         
@@ -59,7 +82,7 @@ class VideoLibraryViewController: UIViewController, UITableViewDelegate, UITable
         if let dueDate = gameAtIndex.dueDate {
             cell.gameDueDate.text = formatDate(dueDate)
         } else {
-            cell.gameDueDate.text = ""
+            cell.gameDueDate.text = "Available"
         }
         
         
@@ -71,12 +94,12 @@ class VideoLibraryViewController: UIViewController, UITableViewDelegate, UITable
         }
         
         return cell
-
+        
     }
     
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-    
+        
     }
     
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
@@ -102,7 +125,8 @@ class VideoLibraryViewController: UIViewController, UITableViewDelegate, UITable
         checkOutOrInAction.backgroundColor = UIColor.purple
         
         let showEditScreenAction = UITableViewRowAction(style: .normal, title: "Edit") { _, _ in
-        self.performSegue(withIdentifier: "showEditGameScreen", sender: self)
+            self.currentGame = GameManager.sharedInstance.getGameIndex(at: indexPath.row)
+            self.performSegue(withIdentifier: "showEditGameScreen", sender: self)
         }
         
         showEditScreenAction.backgroundColor = UIColor.magenta
@@ -113,13 +137,14 @@ class VideoLibraryViewController: UIViewController, UITableViewDelegate, UITable
     
     
     
-    
+    // Goes back to the menu screen with menu button tapped
     @IBAction func menuButtonTapped(_ sender: Any) {
         self.performSegue(withIdentifier: "unwindToMenu", sender: self)
     }
     
+        @IBAction func unwindToLibrary(segue: UIStoryboardSegue) {}
     
-
+    
 }
 
 

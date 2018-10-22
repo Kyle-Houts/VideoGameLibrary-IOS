@@ -22,7 +22,7 @@ class GameManager {
     
     
     // The array of games that will be used throughout the application
-    var videoGameArray: [VideoGame] = [VideoGame(title: "Muppet Monster Mania", rating: "T", cover: UIImage(named: "MonsterAdventure.jpeg"), genre: "Horror", description: "It's like going to a haunted house, but better because there are Muppets.", gameStatus: true), VideoGame(title: "Muppet Pinball Mayhem", rating: "G", cover: UIImage(named: "MuppetPinball.jpeg"), genre: "Horror", description: "It's like playing a pinball machine, but better because there are Muppets.", gameStatus: true), VideoGame(title: "Spy Muppets", rating: "G", cover: UIImage(named: "SpyMuppets.jpeg"), genre: "Horror", description: "It's like watching James Bond, but better because there are Muppets.", gameStatus: true), VideoGame(title: "Race Mania", rating: "G", cover: UIImage(named: "Race.jpeg"), genre: "Horror", description: "It's like Mario Kart, but better because there are Muppets.", gameStatus: true), VideoGame(title: "Pigs in Space", rating: "G", cover: UIImage(named: "PigsInSpace.jpeg"), genre: "Horror", description: "It's like Lost in Space, but better because there are Muppets.", gameStatus: true)]
+    var videoGameArray: [VideoGame] = [VideoGame(title: "Muppet Monster Mania", rating: "Teen", cover: UIImage(named: "MonsterAdventure.jpeg"), genre: "RPG", description: "It's like going to a haunted house, but better because there are Muppets.", gameStatus: true), VideoGame(title: "Muppet Pinball Mayhem", rating: "10+", cover: UIImage(named: "MuppetPinball.jpeg"), genre: "Puzzle", description: "It's like playing a pinball machine, but better because there are Muppets.", gameStatus: true), VideoGame(title: "Spy Muppets", rating: "M", cover: UIImage(named: "SpyMuppets.jpeg"), genre: "Survival", description: "It's like watching James Bond, but better because there are Muppets.", gameStatus: true), VideoGame(title: "Race Mania", rating: "18+", cover: UIImage(named: "Race.jpeg"), genre: "Muppet", description: "It's like Mario Kart, but better because there are Muppets.", gameStatus: true), VideoGame(title: "Pigs in Space", rating: "Teen", cover: UIImage(named: "PigsInSpace.jpeg"), genre: "Shooter", description: "It's like Lost in Space, but better because there are Muppets.", gameStatus: true)]
     
     
     // Function to get the number of games we have
@@ -75,8 +75,17 @@ class GameManager {
     }
     
     
-    // Function to edit a game in the library
-    
+//    // Function to edit a game in the library
+//    
+//    func editGame(game: VideoGame){
+//
+//       GameManager.sharedInstance.removeGame(at: videoGameArray[index])
+//
+//        GameManager.sharedInstance
+//
+//        
+//        
+//    }
     
 }
 

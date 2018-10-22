@@ -10,6 +10,8 @@ import UIKit
 
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
+    
+    // Array for the menu options
     let settingsOptionsArray = ["Show all games", "Show available games", "Show checked out games", "Add game"]
     
     
@@ -28,12 +30,14 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     
     
+    
+    // Sets number of rows in menu tableView to the number in the array
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return settingsOptionsArray.count
     }
     
     
-    
+    // Assigns settingsOptionsArray to the tableView cells
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! VideoGameTableViewCell
@@ -46,6 +50,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     
+    
+    // Sets the segues for each cell in the menu tableView
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         switch indexPath.row {
@@ -73,10 +79,13 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     
+    // SEGUES
     
     @IBAction func unwindToGameList(segue: UIStoryboardSegue) {}
     
+    
     @IBAction func unwindToMenu(segue: UIStoryboardSegue) {}
+    
     
     @IBAction func showAvailableGames(segue: UIStoryboardSegue) {}
     
