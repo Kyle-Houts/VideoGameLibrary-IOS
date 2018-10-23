@@ -12,7 +12,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     
     // Array for the menu options
-    let settingsOptionsArray = ["Show all games", "Show available games", "Show checked out games", "Add game"]
+    let settingsOptionsArray = ["Show all games", "Add game"]
     
     
     

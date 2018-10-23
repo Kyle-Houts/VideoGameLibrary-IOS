@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AddGameViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class AddGameViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextViewDelegate {
     
     
     
@@ -48,6 +48,9 @@ class AddGameViewController: UIViewController, UIPickerViewDataSource, UIPickerV
     
     var selectedImage: UIImage?
     
+//    func textFieldDidBeginEditing(textField: UITextView) {
+//        addGameDescription.text = ""
+//    }
     
     
     // Sets number of cells in the genre tableView to the number in the genreArray
@@ -90,7 +93,7 @@ class AddGameViewController: UIViewController, UIPickerViewDataSource, UIPickerV
     // Adds new game to array if all fields are filled out
     @IBAction func addGameButtonTapped(_ sender: Any) {
         
-        // Shows alart if title and description are blank
+        // Shows alert if title and description are blank
         guard let title = addGameTitle.text, title.trimmingCharacters(in: .whitespacesAndNewlines) != "",
             let gameDescription = addGameDescription.text, gameDescription.trimmingCharacters(in: .whitespacesAndNewlines) != "" else {
                 // Show an error and return
@@ -109,7 +112,7 @@ class AddGameViewController: UIViewController, UIPickerViewDataSource, UIPickerV
             rating = "10+"
             
         case 2:
-            rating = "T"
+            rating = "Teen"
             
         case 3:
             rating = "M"
@@ -118,7 +121,7 @@ class AddGameViewController: UIViewController, UIPickerViewDataSource, UIPickerV
             rating = "18+"
             
         default:
-            rating = "E"
+            rating = "Everyone"
         }
         
         
