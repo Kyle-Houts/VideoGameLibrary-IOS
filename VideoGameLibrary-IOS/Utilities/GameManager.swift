@@ -46,7 +46,6 @@ class GameManager {
     
     // Function to delete a game from the library
     func removeGame(at index: Int) {
-        
         videoGameArray.remove(at: index)
         
     }

@@ -12,7 +12,7 @@ class VideoLibraryViewController: UIViewController, UITableViewDelegate, UITable
     
     
     
-
+    
     
     @IBOutlet weak var gameLibraryTableView: UITableView!
     
@@ -99,8 +99,8 @@ class VideoLibraryViewController: UIViewController, UITableViewDelegate, UITable
     
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        
     }
+    
     
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         // This allows us to return an array of actions that the row will have (if any)
@@ -142,7 +142,7 @@ class VideoLibraryViewController: UIViewController, UITableViewDelegate, UITable
         self.performSegue(withIdentifier: "unwindToMenu", sender: self)
     }
     
-        @IBAction func unwindToLibrary(segue: UIStoryboardSegue) {}
+    @IBAction func unwindToLibrary(segue: UIStoryboardSegue) {}
     
     
 }
